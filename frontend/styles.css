@@ -1294,9 +1294,9 @@ html, body {
 .chatbot-popup {
   position: fixed;
   right: 25px;
-  bottom: 90px;
+  top: 25px;
+  bottom: unset;
   width: 420px;
-  height: 500px;
   background: #fff;
   overflow: hidden;
   border-radius: 25px;
@@ -1599,7 +1599,8 @@ em-emoji-picker {
   .chatbot-popup {
     width: 100%;
     right: 0;
-    bottom: 0;
+    top: unset;
+    bottom: 0px;
     border-radius: 0;
     height: 100%;
   }
