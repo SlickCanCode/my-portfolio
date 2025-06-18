@@ -3,9 +3,11 @@ from agent import invoke_agent
 from contact import send_email as contact_me
 from flask_cors import CORS
 from waitress import serve
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+port = int(os.environ.get("PORT", 5000))
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
@@ -34,5 +36,5 @@ def contact():
         return jsonify({"success": "message sent"}),200
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=port)
 # This will run the Flask app on all interfaces at port 5000.
