@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from agent import invoke_agent
 from contact import send_email as contact_me
 from flask_cors import CORS
+from waitress import serve
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -13,9 +14,9 @@ def chatbot():
         return jsonify({'error': 'No message provided'}), 400
     
     user_message = data.get('message')
-    
+    response = {"response":invoke_agent(user_message)["response"], "tools_used":invoke_agent(user_message)["tools_used"]}
     # process the message and generate a response.
-    return jsonify(invoke_agent(user_message)), 200
+    return jsonify(response), 200
 
 @app.route('/contact', methods=['POST'])
 def contact():
@@ -33,5 +34,5 @@ def contact():
         return jsonify({"success": "message sent"}),200
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=5000)
 # This will run the Flask app on all interfaces at port 5000.
