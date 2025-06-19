@@ -196,7 +196,7 @@ document.querySelector(".contactme-form").addEventListener("submit", async funct
   document.querySelector(".submit-message").disabled = true;
   
   try {
-    const response = await fetch("http://localhost:5000/contact", {
+    const response = await fetch("https://slickcancode-backend.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -256,7 +256,7 @@ const generateBotResponse = async (incomingMessageDiv, messageText) => {
   const messageElement = incomingMessageDiv.querySelector(".message-text");
 
   try {
-    const response = await fetch("http://localhost:5000/chatbot", {
+    const response = await fetch("https://slickcancode-backend.onrender.com/chatbot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: messageText }),
