@@ -1,3 +1,7 @@
+document.fonts.ready.then(() => {
+    document.documentElement.classList.add('fonts-loaded');
+  });
+
 //Service cards animation
 const observer = new IntersectionObserver(
       (entries) => {
@@ -168,18 +172,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //chatbot-tooltip animation
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      const tooltip = document.querySelector('.chat-tooltip');
-      if (tooltip) {
-        tooltip.classList.add('show'); // fade in
+  window.addEventListener('load', () => {
+  setTimeout(() => {
+    const tooltip = document.querySelector('.chat-tooltip');
+    if (tooltip) {
+      tooltip.classList.add('show'); // fade in
 
-        setTimeout(() => {
-          tooltip.classList.remove('show'); // fade out
-        }, 10000); // visible for 10 seconds
-      }
-    }, 2000); // show after 2 seconds
-  });
+      setTimeout(() => {
+        tooltip.classList.remove('show'); // fade out
+      }, 10000); // visible for 10 seconds
+    }
+  }, 2000); // show after 2 seconds
+});
+
 
 //Backend Actions 
 

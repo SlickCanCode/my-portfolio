@@ -13,7 +13,15 @@ html, body {
     margin-left: 0;
     margin-right: 0;
 }
+.material-symbols-rounded,
+  .material-symbols-outlined {
+    visibility: hidden;
+  }
 
+  html.fonts-loaded .material-symbols-rounded,
+  html.fonts-loaded .material-symbols-outlined {
+    visibility: visible;
+  }
 .chatbot-container {
   position: fixed; /* Keeps it visible */
   top: 20px;       /* Distance from top of viewport */
